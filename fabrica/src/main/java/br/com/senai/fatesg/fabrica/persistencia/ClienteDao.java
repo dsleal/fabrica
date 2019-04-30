@@ -1,5 +1,8 @@
 package br.com.senai.fatesg.fabrica.persistencia;
 
-public interface ClienteDao {
+import br.com.ambientinformatica.jpa.persistencia.Persistencia;
+import br.com.senai.fatesg.fabrica.entidade.Cliente;
+
+public interface ClienteDao extends Persistencia<Cliente> {
 
 }
