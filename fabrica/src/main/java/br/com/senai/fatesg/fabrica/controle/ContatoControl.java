@@ -26,10 +26,13 @@ public class ContatoControl {
 	
 	private List<Contato> contatos = new ArrayList<Contato>();
 	
+	
 
    @PostConstruct
    public void init(){
       listar(null);
+      
+     
    }
    
 	public void confirmar(ActionEvent evt){

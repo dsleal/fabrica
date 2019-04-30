@@ -4,17 +4,27 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Named;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
 import br.com.senai.fatesg.fabrica.entidade.Cliente;
 import br.com.senai.fatesg.fabrica.persistencia.ClienteDao;
 
+@Named("ClienteControl")
+@Scope("conversation")
 public class ClienteControl {
 	private Cliente cliente = new Cliente();
 	
+	@Autowired
 	private ClienteDao clienteDao;
 	
 	private List<Cliente> clientes = new ArrayList<Cliente>();
 	
+	@PostConstruct
 	public void init(){
 		listar(null);
 	}
