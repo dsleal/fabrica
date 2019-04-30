@@ -1,0 +1,853 @@
+.ui-widget {
+   font-size: 12px !important;
+}
+
+.ui-state-disabled {
+   background-color: #EAF3FA !important;
+   opacity: .90 !important;
+}
+
+
+/* LOGIN SCREEN */
+html, body {
+   background-color: #F9FAFB;
+}
+
+.topCenter {
+   position: absolute;
+   left: 0%;
+   top: 0%;
+   text-align: center;
+   height: 20%;
+   width: 100%;
+   background-color: #193048;
+}
+
+.divLogo {
+   position: absolute;
+   left: 1%;
+   top: 2%;
+   height: 16%;
+   width: 20%;
+   background-color: #193048;
+   border: solid white 1px;
+}
+
+.topRight {
+   position: absolute;
+   right: 0%;
+   top: 0%;
+   text-align: center;
+   height: 15%;
+   width: 20%;
+   background-color: #193048;
+}
+
+.loginLeft {
+   position: absolute;
+   left: 0%;
+   top: 20%;
+   text-align: center;
+   height: 65%;
+   width: 50%;
+}
+
+#loginFrame {
+   position: relative;
+   text-align:center;
+   height: 100%;
+   width: 50%;
+}
+
+.cadastroStyle tr, .cadastroStyle td {
+   border: none !important;
+   background-color: #F1F1F1 !important;
+   width: 60%;
+}
+
+.searchButtonColumn {
+   width:20px;   
+}
+
+.usuarioCadastroInputColumn {
+   width: 300px; 
+}
+
+.loginRight {
+   position: absolute;
+   right: 12%;
+   bottom: 15%;
+   text-align: center;
+   height: 55%;
+   width: 25%;
+}
+
+.bFooter {
+   position: absolute;
+   left: 0%;
+   bottom: 0.01%;
+   height: 15%;
+   width: 100%;
+   background-color: #193048;
+}
+
+#tradeMark {
+   position: absolute;
+   left: 40%;
+   bottom: 0.01%;
+}
+
+#logoPh {
+   position: relative;
+   left: 22%;
+   top: 22%;
+   font-weight: bold;
+   font-size: 52px;
+   font-family: "Arial Narrow";
+   color: #FFFFFF;
+}
+
+.loginText {
+   font-family: "Arial Narrow" !important;
+   font-size: 16px !important;
+   color: #193048 !important;
+   position: relative !important;
+}
+
+.loginBars {
+   height: 30px !important;
+   width: 100% !important;
+   font-size: 16px !important;
+   font-family: "Arial Narrow" !important;
+   text-align: center !important;
+   border-width: 1px !important;
+   border-color: #193048 !important;
+   position: relative !important;
+}
+
+.registerField {
+   height: 20px !important;
+   width: 100% !important;
+   font-size: 16px !important;
+   font-family: "Arial Narrow" !important;
+   text-align: center !important;
+   border-width: 1px !important;
+   border-color: #193048 !important;
+   position: relative !important;
+}
+
+.loginButton {
+   border-width: 0px !important;
+   height: 30px !important;
+   width: 100% !important;
+   color: white !important;
+   font-family: "Arial Narrow" !important;
+   font-weight: bold !important;
+   background-color: #193048 !important;
+   position: relative !important;
+}
+
+.cadastroButton {
+   border-width: 0px !important;
+   height: 45px !important;
+   width: 100% !important;
+   color: white !important;
+   font-family: "Arial Narrow" !important;
+   font-weight: bold !important;
+   font-size: 20px !important;
+   background-color: #7AC141 !important;
+   position: relative !important;
+}
+
+.concluirCadastroButton {
+   font-family: "Arial Narrow" !important;
+   font-size: 16px !important;
+   background-color: #7AC141 !important;
+   position: relative !important;
+}
+
+.formUnit {
+   position: absolute;
+   left: 25%;
+   top: 30%;
+   text-align: center;
+   height: 40%;
+   width: 40%;
+   border: 3px;
+}
+
+/* TEMPLATE */
+html, body {
+   margin: 0px;
+   padding: 0px;
+   height: 98.5%;
+   width: 100%;
+}
+
+.borderLeft {
+   border-left: 1px solid #E3EAF3 !important;
+}
+
+.borderRight {
+   border-right: 1px solid #E3EAF3 !important;
+}
+
+.borderTop {
+   border-top: 1px solid #E3EAF3 !important;  
+}
+
+.borderBottom {
+   border-bottom: 1px solid #E3EAF3 !important;   
+}
+
+.borderSides {
+   border-left: 1px solid #E3EAF3 !important;
+   border-right: 1px solid #E3EAF3 !important;
+}
+
+.borderSurround tr, .borderSurround td {
+   border: 1px solid #DDDDDD !important;
+   background: transparent !important;
+   background-color: #F9FAFB !important;
+}
+
+#mainStruct {
+   width: 100%;
+   height: 100%;
+   margin: auto;
+}
+
+#header {
+   height: 8%;
+   width: 88%;
+   float: right;
+}
+
+#headerLeft {
+   height: 100%;
+   width: 50%;
+   background-color: #e3eaf3;
+   float: left;
+}
+
+#headerRight {
+   height: 100%;
+   width: 50%;
+   background-color: #e3eaf3;
+   float: right;
+   text-align: right;
+}
+
+#sidebar {
+   height: 100%;
+   width: 12%;
+   background-color: #113951;
+   position: absolute;
+   float: left;
+}
+
+#sidebarLogo {
+   height: 16%;
+   width: 100%;
+   float: left;
+}
+
+#sidebarMenu {
+   position: relative;
+   height: 78%;
+   width: 95%;
+   float: left;
+}
+
+#sidebarBottom {
+   height: 3%;
+   width: 100%;
+   text-align: center;
+   position: absolute;
+   bottom: 0%;
+}
+
+#content {
+   height: 86%;
+   width: 88%;
+   background-color: #FFFFFF;
+   float: right;
+   margin: auto;
+}
+
+#formCorpo {
+   height: 100%;
+   width: 100%;
+   margin: 0px;
+}
+
+/* SYSTEM SCREEN */
+.screenHeader {
+   height: 8%;
+}
+
+.ui-autocomplete-input {
+   width: 402px !important;
+}
+
+.contentField {
+   background-color: #FFFFFF;
+   height: 95%;
+   width: 98%;
+   position: relative;
+   margin-top: 1%;
+   margin-left: 1%;
+}
+
+.semBorda tr, .semBorda td {
+   border: none !important;
+   background: transparent !important;
+}
+
+.comBorda tr, .comBorda td {
+   border: 1px solid #DDDDDD !important;
+   background: transparent !important;
+   background-color: #F9FAFB !important;
+}
+
+.searchBar {
+   height: 100%;
+   width: 35%;
+   text-align: center;
+   position: relative;
+   right: 1%;
+   bottom: 25%;
+}
+
+.filterSelect {
+   height: 40%;
+   width: 10%;
+   text-align: center;
+   position: relative;
+   bottom: 16%;
+   left: 40%;
+}
+
+.listaButton {
+   height: 30px;
+   width: 30px;
+   border-radius: 50px !important;
+   position: relative;
+   left: -4%;
+}
+
+.listaButton2 {
+   width:30px !important;
+   height:30px !important;
+   border-radius: 50px !important;
+}
+
+.addButton {
+   height: 30px;
+   width: 30px;
+   border-radius: 30px !important;
+   position: relative;
+   left: -4%;
+}
+
+.list {
+   width: 95%;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.tableButton {
+   position: relative;
+   width: 45%;
+   height: 20px;
+}
+
+.choiceMenu {
+   height: 23px;
+   width: 210px;
+   border: 1;
+   border-radius: 6px;
+}
+
+.dashboardYear {
+   border:0px;
+   background: transparent !important; 
+   margin-top:-10px; 
+   font-face: Arial Narrow !important;
+   font-size:36px !important; 
+   color: #0D87C5;
+}
+
+.dashboardCfop {
+   border:0px;
+   background: transparent !important; 
+   margin-top: -160px;
+   width: 80% !important;
+   font-face: Arial Narrow !important;
+   font-size: 28px !important; 
+   color: #0D87C5;
+}
+
+/* CRIAR PEDIDO */
+.pedInfo {
+   text-align: left;
+   width: 45%;
+}
+
+.pedInfoLabel {
+   text-align: right;
+   width: 5%;
+}
+
+.tabViewStyle {
+   border-radius: 0px !important;
+   padding: 0px !important;
+   margin-right: -10px !important;
+   margin-left: -10px !important;
+}
+
+.dataTableStyle {
+   margin-right: -10px !important;
+   margin-left: -10px !important;
+   margin-top: -5px !important;
+   margin-bottom: -5px !important;
+}
+
+#pedidoNum {
+   background-color: #FFFFFF;
+   height: 5.8%;
+   width: 12%;
+   text-align: center;
+   position: absolute;
+   top: 0.5%;
+   right: 0.5%;
+   border: 1px solid #DDDDDD;
+}
+
+#dataDiv {
+   background-color: #FFFFFF;
+   height: 5.8%;
+   width: 12%;
+   text-align: center;
+   position: absolute;
+   top: 0.5%;
+   right: 12.8%;
+   border: 1px solid #DDDDDD;
+}
+
+#statusDiv {
+   background-color: #FFFFFF;
+   height: 5.8%;
+   width: 12%;
+   text-align: center;
+   position: absolute;
+   top: 0.5%;
+   right: 25.1%;
+   border: 1px solid #DDDDDD;
+}
+
+#clienteInfo {
+   height: 5.8%;
+   width: 20%;
+   position: absolute;
+   top: 0.5%;
+   left: 0%;
+}
+
+#clienteNome {
+   background-color: #FFFFFF;
+   height: 5.8%;
+   width: 43%;
+   text-align: center;
+   border: 1px solid #DDDDDD;
+   position: relative;
+   top: 0.5%;
+   left: 19.2%;
+}
+
+#produtoBusca {
+   width: 25%;
+   height: 5.8%;
+   position: relative;
+   top: 2%;
+   left: 38%;
+}
+
+#itemDiv {
+   height: auto;
+   width: 100%;
+   text-align: center;
+   position: absolute;
+   top: 17%;
+   left: 0%;
+   border-top: 1px solid #DDDDDD;
+}
+
+#pagamentoDiv {
+   height: 12%;
+   width: 100%;
+   text-align: center;
+   position: absolute;
+   bottom: 0%;
+   left: 0%;
+   border-top: 1px solid #DDDDDD;
+}
+
+#metodoPagamentoDiv {
+   height: 100%;
+   width: 18%;
+   text-align: center;
+   position: absolute;
+   top: 0%;
+   left: 1.5%;
+}
+
+#parcelamentoDiv {
+   height: 100%;
+   width: 8%;
+   position: absolute;
+   top: 0%;
+   left: 19.5%;
+}
+
+#subtotalDiv {
+   text-align: center;
+   position: absolute;
+   top: 20%;
+   right: 16.8%;
+}
+
+.campoValor {
+   height: 58%;
+   width: 16%;
+   line-height: 195%;
+   background-color: #FFFFFF;
+   border: 1px solid #DDDDDD;
+}
+
+#totalDiv {
+   text-align: center;
+   position: absolute;
+   top: 20%;
+   right: 0.5%;
+}
+
+#listaItem {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.cliFont {
+   font-weight: bold;
+}
+
+/*DIALOG PEDIDO*/
+#fieldProduto {
+   background-color: green;
+   position: relative;
+   top: 16%;
+}
+
+#fieldEstoque {
+   height: 120px;
+   position: relative;
+   top: 16%;
+}
+
+#fieldEstoqueExterno {
+   height: 120px;
+   position: relative;
+   top: 50%;
+}
+
+#fieldValores {
+   height: 22%;
+   text-align: center;
+   position: relative;
+}
+
+.outputText {
+   width: 40%;
+}
+
+.inputText {
+   width: 20%;
+   text-align: center;
+}
+
+/* SIDEBAR MENU */
+#cssmenu {
+   padding: 0;
+   margin: 0;
+   border: 0;
+   line-height: 1;
+}
+
+#cssmenu ul, #cssmenu ul li, #cssmenu ul ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+#cssmenu ul {
+   position: relative;
+   z-index: 597;
+   float: left;
+}
+
+#cssmenu ul li {
+   float: left;
+   min-height: 1px;
+   line-height: 1em;
+   vertical-align: middle;
+   position: relative;
+}
+
+#cssmenu ul li.hover, #cssmenu ul li:hover {
+   position: relative;
+   z-index: 599;
+   cursor: default;
+}
+
+#cssmenu ul ul {
+   visibility: hidden;
+   position: absolute;
+   top: 100%;
+   left: 0px;
+   z-index: 598;
+   width: 100%;
+}
+
+#cssmenu ul ul li {
+   float: none;
+}
+
+#cssmenu ul ul ul {
+   top: -2px;
+   right: 0;
+}
+
+#cssmenu ul li:hover>ul {
+   visibility: visible;
+}
+
+#cssmenu ul ul {
+   top: 1px;
+   left: 99%;
+}
+
+#cssmenu ul li {
+   float: none;
+}
+
+#cssmenu ul ul {
+   margin-top: 1px;
+}
+
+#cssmenu ul ul li {
+   font-weight: normal;
+}
+/* Custom CSS Styles */
+#cssmenu {
+   width: 105%;
+   background: #113951;
+   font-family: Arial Narrow;
+   font-size: 12px;
+}
+
+#cssmenu:before {
+   content: '';
+   display: block;
+}
+
+#cssmenu:after {
+   content: '';
+   display: table;
+   clear: both;
+}
+
+#cssmenu a {
+   display: block;
+   padding: 15px 20px;
+   color: #ffffff;
+   text-decoration: none;
+   text-transform: uppercase;
+}
+
+#cssmenu>ul {
+   width: 100%;
+}
+
+#cssmenu ul ul {
+   width: 100%;
+}
+
+#cssmenu>ul>li>a {
+   border-right: 4px solid #1b9bff;
+   color: #ffffff;
+}
+
+#cssmenu>ul>li>a:hover {
+   color: #ffffff;
+}
+
+#cssmenu>ul>li.active a {
+   background: #113951;
+}
+
+#cssmenu>ul>li a:hover, #cssmenu>ul>li:hover a {
+   background: #1b9bff;
+}
+
+#cssmenu li {
+   position: relative;
+}
+
+#cssmenu ul li.has-sub>a:after {
+   content: '+';
+   position: absolute;
+   top: 50%;
+   right: 15px;
+   margin-top: -6px;
+}
+
+#cssmenu ul ul li.first {
+   -webkit-border-radius: 0 3px 0 0;
+   -moz-border-radius: 0 3px 0 0;
+   border-radius: 0 3px 0 0;
+}
+
+#cssmenu ul ul li.last {
+   -webkit-border-radius: 0 0 3px 0;
+   -moz-border-radius: 0 0 3px 0;
+   border-radius: 0 0 3px 0;
+   border-bottom: 0;
+}
+
+#cssmenu ul ul {
+   -webkit-border-radius: 0 3px 3px 0;
+   -moz-border-radius: 0 3px 3px 0;
+   border-radius: 0 3px 3px 0;
+}
+
+#cssmenu ul ul {
+   border: 1px solid #0082e7;
+}
+
+#cssmenu ul ul a {
+   font-size: 12px;
+   color: #ffffff;
+}
+
+#cssmenu ul ul a:hover {
+   color: #ffffff;
+}
+
+#cssmenu ul ul li {
+   border-bottom: 1px solid #0082e7;
+}
+
+#cssmenu ul ul li:hover>a {
+   background: #4eb1ff;
+   color: #ffffff;
+}
+
+#cssmenu.align-right>ul>li>a {
+   border-left: 4px solid #1b9bff;
+   border-right: none;
+}
+
+#cssmenu.align-right {
+   float: right;
+}
+
+#cssmenu.align-right li {
+   text-align: right;
+}
+
+#cssmenu.align-right ul li.has-sub>a:before {
+   content: '+';
+   position: absolute;
+   top: 50%;
+   left: 15px;
+   margin-top: -6px;
+}
+
+#cssmenu.align-right ul li.has-sub>a:after {
+   content: none;
+}
+
+#cssmenu.align-right ul ul {
+   visibility: hidden;
+   position: absolute;
+   top: 0;
+   left: -100%;
+   z-index: 598;
+   width: 100%;
+}
+
+#cssmenu.align-right ul ul li.first {
+   -webkit-border-radius: 3px 0 0 0;
+   -moz-border-radius: 3px 0 0 0;
+   border-radius: 3px 0 0 0;
+}
+
+#cssmenu.align-right ul ul li.last {
+   -webkit-border-radius: 0 0 0 3px;
+   -moz-border-radius: 0 0 0 3px;
+   border-radius: 0 0 0 3px;
+}
+
+#cssmenu.align-right ul ul {
+   -webkit-border-radius: 3px 0 0 3px;
+   -moz-border-radius: 3px 0 0 3px;
+   border-radius: 3px 0 0 3px;
+}
+
+
+/* Dashboard Steps - Month Selection */
+
+.ui-steps .ui-steps-item {
+    width: 8%;
+}
+ 
+.ui-state-highlight {
+    text-shadow: none !important;
+}
+ 
+.ui-steps.custom {
+    margin-bottom: 30px;
+}
+ 
+.ui-steps.custom .ui-steps-item .ui-menuitem-link {
+    height: 10px;
+    padding: 0 1em;
+}
+ 
+.ui-steps.custom .ui-steps-item .ui-steps-number {
+    background-color: #0081c2;
+    color: #FFFFFF;
+    display: inline-table;
+    width: 25px;
+    height: 25px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    border-radius: 0px;
+}
+
+/* Wizard */
+
+.ui-wizard-nav-next {
+   position: relative;
+   left: -36%;
+}
+
+.ui-wizard-nav-back {
+   position: relative;
+   right: -36%;
+}
+
+.datalist-noborder .ui-widget-content {
+border: none;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+  <!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN"
+  "http://jetty.mortbay.org/configure.dtd">
+
+<Configure id="WebAppContext" class="org.eclipse.jetty.webapp.WebAppContext">
+    <Set name="maxFormContentSize" type="int">600000</Set>
+    
+    <New id="kyklos" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
+        <Set name="driverClassName">org.postgresql.Driver</Set>
+        <Set name="url"><SystemProperty name="cotemais.jdbc.url" default="jdbc:postgresql://localhost/fabrica"/></Set>
+        <Set name="username"><SystemProperty name="cotemais.jdbc.user" default="postgres"/></Set>
+        <Set name="password"><SystemProperty name="cotemais.jdbc.password" default="123456"/></Set>
+    </New>
+        
+    <New id="kyklos_resource" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg/>
+        <Arg>java:comp/env/jdbc/fabricas</Arg>
+        <Arg>
+            <Ref id="fabrica"/>
+        </Arg>
+    </New>
+    
+</Configure>
