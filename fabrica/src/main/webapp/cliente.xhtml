@@ -7,14 +7,34 @@
 	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-		<p:panel header="Cadastro de Cliente" id="panel">
+	
+		<p:panel header="Formulário" id="panel">
 			<h:panelGrid columns="2">
 				<h:outputText value="Nome"></h:outputText>
 				<p:inputText value="#{ClienteControl.cliente.nome }"></p:inputText>
 				<h:outputText value="Telefone"></h:outputText>
 				<p:inputMask value="#{ClienteControl.cliente.telefone }" mask="(99) 9999-9999"></p:inputMask>
-				<p:commandButton actionListener="#{ClienteControl.confirmar }" value="Confirmar" ></p:commandButton>
+				<p:commandButton actionListener="#{ClienteControl.confirmar }" value="Confirmar" update="clientes, panel"></p:commandButton>
 			</h:panelGrid>
-		</p:panel>	
+		</p:panel>
+		
+		<p:dataTable id="clientes" value="#{ClienteControl.clientes }" var="cont"  width="100%" emptyMessage="Sem registros" >
+			<f:facet name="header">
+				<h:outputText value="Lista de clientes"></h:outputText>
+			</f:facet>
+			<p:column sortBy="#{cont.nome }">
+				<f:facet name="header">
+					<h:outputText value="Nome"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{cont.nome }"></h:outputText>
+			</p:column>	
+			<p:column sortBy="#{cont.telefone }">
+				<f:facet name="header">
+					<h:outputText value="Telefone"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{cont.telefone }"></h:outputText>
+			</p:column>	
+		</p:dataTable>
+
 	</ui:define>
 </ui:composition>

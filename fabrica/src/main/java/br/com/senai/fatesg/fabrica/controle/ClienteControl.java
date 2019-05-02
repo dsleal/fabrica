@@ -17,6 +17,7 @@ import br.com.senai.fatesg.fabrica.persistencia.ClienteDao;
 @Named("ClienteControl")
 @Scope("conversation")
 public class ClienteControl {
+	
 	private Cliente cliente = new Cliente();
 	
 	@Autowired
@@ -30,15 +31,17 @@ public class ClienteControl {
 	}
 	
 	public void confirmar(ActionEvent evt){
-		try {
+		try{
 			clienteDao.alterar(cliente);
-         listar(evt);
-         cliente = new Cliente();
-		} catch (Exception e) {
-		   UtilFaces.addMensagemFaces(e);
+			listar(evt);
+			cliente = new Cliente();
+			
+		}catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
 		}
 	}
-
+	
+	
 	public void listar(ActionEvent evt){
 		try {
 			clientes = clienteDao.listar();
