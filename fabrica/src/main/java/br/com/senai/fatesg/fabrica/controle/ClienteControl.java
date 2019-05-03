@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Scope;
 
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
 import br.com.senai.fatesg.fabrica.entidade.Cliente;
+import br.com.senai.fatesg.fabrica.entidade.IPessoa;
 import br.com.senai.fatesg.fabrica.persistencia.ClienteDao;
 
 @Named("ClienteControl")
@@ -47,7 +48,7 @@ public class ClienteControl {
 		}
 	}
 	
-	public Cliente getCliente() {
+	public IPessoa getCliente() {
 		return cliente;
 	}
 
