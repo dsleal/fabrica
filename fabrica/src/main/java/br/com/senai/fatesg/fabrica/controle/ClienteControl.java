@@ -26,8 +26,6 @@ public class ClienteControl {
 	
 	private List<Cliente> clientes = new ArrayList<Cliente>();
 	
-	
-
    @PostConstruct
    public void init(){
       listar(null);
@@ -57,7 +55,7 @@ public class ClienteControl {
 		return cliente;
 	}
 
-	public void setCliente(Cliente contato) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 	

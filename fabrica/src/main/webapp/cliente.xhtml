@@ -9,9 +9,22 @@
 	<ui:define name="corpo">
 
 		<p:panel header="Formulário" id="panel">
-			<h:panelGrid columns="2">
+			<h:panelGrid columns="7">
 				<h:outputText value="Nome"></h:outputText>
 				<p:inputText value="#{ClienteControl.cliente.nome }"></p:inputText>
+				
+				<h:outputText value="DataDeNascimento"></h:outputText>
+				<p:calendar></p:calendar>
+				
+				<h:outputText value="Identidade"></h:outputText>
+				<p:inputText value="#{ClienteControl.cliente.identidade }"></p:inputText>
+				
+				<h:outputText value="Cpf"></h:outputText>
+				<p:inputMask value="#{ClienteControl.cliente.cpf }" mask="999.999.999-99"></p:inputMask>
+				
+				<h:outputText value="Cnpj"></h:outputText>
+				<p:inputMask value="#{ClienteControl.cliente.cnpj }" mask="99.999.999/9999-99"></p:inputMask>
+				
 				<h:outputText value="Telefone"></h:outputText>
 				<p:inputMask value="#{ClienteControl.cliente.telefone }" mask="(99) 9999-9999"></p:inputMask>
 				<p:commandButton actionListener="#{ClienteControl.confirmar }" value="Confirmar" update="clientes, panel"></p:commandButton>

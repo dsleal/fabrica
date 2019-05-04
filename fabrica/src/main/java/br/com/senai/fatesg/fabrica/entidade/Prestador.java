@@ -3,58 +3,81 @@ package br.com.senai.fatesg.fabrica.entidade;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Prestador extends Cliente implements IPessoa{
-	
-	private char tipo; 	
-	private String codigo_banco;
-	private String agencia;
-	private String conta;
-	
-	public Prestador(String nome, Date dataDeNascimento, String identidade, String cpf_cnpj, String email,
-			String telefone, char tipo, String codigo_banco, String agencia, String conta) {
-		super(nome, dataDeNascimento, identidade, cpf_cnpj, email, telefone);
-		this.tipo = tipo;
-		this.codigo_banco = codigo_banco;
-		this.agencia = agencia;
-		this.conta = conta;
-	}	
-	
-	public char getTipo() {
-		return tipo;
-	}
-	public void setTipo(char tipo) {
-		this.tipo = tipo;
-	}
-	public String getCodigo_banco() {
-		return codigo_banco;
-	}
-	public void setCodigo_banco(String codigo_banco) {
-		this.codigo_banco = codigo_banco;
-	}
-	public String getAgencia() {
-		return agencia;
-	}
-	public void setAgencia(String agencia) {
-		this.agencia = agencia;
-	}
-	public String getConta() {
-		return conta;
-	}
-	public void setConta(String conta) {
-		this.conta = conta;
-	}
+public class Prestador {
 
-	@Override
-	public String toString() {
-		return "Prestador [Nome:" + getNome() + ", Data De Nascimento:" + getDataDeNascimento()
-				+ ", Identidade:" + getIdentidade() + ", Cpf_cnpj:" + getCpf_cnpj() + ", Email:"
-				+ getEmail() + ", Telefone:" + getTelefone() + ", Id;" + getId() + "]";
-	}
+   @Id
+   @GeneratedValue(generator="prestador_seq", strategy=GenerationType.SEQUENCE)
+   @SequenceGenerator(name="prestador_seq", sequenceName="prestador_seq", allocationSize=1, initialValue=1)
+   
+   private Integer id;
+   private String nome;
+   private Date dataDeNascimento;
+   private String identidade;
+   private String cpf;
+   private String cnpj;
+   private String telefone;
 
-	
-	
-	
-	
+   public Date getDataDeNascimento() {
+	return dataDeNascimento;
+}
+
+public void setDataDeNascimento(Date dataDeNascimento) {
+	this.dataDeNascimento = dataDeNascimento;
+}
+
+public String getIdentidade() {
+	return identidade;
+}
+
+public void setIdentidade(String identidade) {
+	this.identidade = identidade;
+}
+
+public String getCpf() {
+	return cpf;
+}
+
+public void setCpf(String cpf) {
+	this.cpf = cpf;
+}
+
+public String getCnpj() {
+	return cnpj;
+}
+
+public void setCnpj(String cnpj) {
+	this.cnpj = cnpj;
+}
+
+public void setId(Integer id) {
+	this.id = id;
+}
+
+public String getNome() {
+      return nome;
+   }
+
+   public void setNome(String nome) {
+      this.nome = nome;
+   }
+
+   public String getTelefone() {
+      return telefone;
+   }
+
+   public void setTelefone(String telefone) {
+      this.telefone = telefone;
+   }
+
+   public Integer getId() {
+      return id;
+   }
+   
+
 }
