@@ -7,7 +7,7 @@
 	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-	
+
 		<p:panel header="Formulário" id="panel">
 			<h:panelGrid columns="2">
 				<h:outputText value="Nome"></h:outputText>
@@ -20,7 +20,7 @@
 		
 		<p:dataTable id="clientes" value="#{ClienteControl.clientes }" var="cont"  width="100%" emptyMessage="Sem registros" >
 			<f:facet name="header">
-				<h:outputText value="Lista de clientes"></h:outputText>
+				<h:outputText value="Lista de Clientes"></h:outputText>
 			</f:facet>
 			<p:column sortBy="#{cont.nome }">
 				<f:facet name="header">

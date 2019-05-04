@@ -11,7 +11,8 @@ import br.com.senai.fatesg.fabrica.entidade.Cliente;
 
 @Repository("clienteDao")
 public class ClienteDaoJpa extends PersistenciaJpa<Cliente> implements ClienteDao{
-	
-	private static final long serialVersionUID = 1L;
+
+   private static final long serialVersionUID = 1L;
+
 
 }
