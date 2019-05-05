@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="corpo">
+
+		<p:panel header="Formulário" id="panel">
+			<h:panelGrid columns="2">
+				<h:outputText value="Descricao"></h:outputText>
+				<p:inputText value="#{TipoDeItemServicoControl.tipodeitemservico.descricao}"></p:inputText>
+
+				<h:outputText value="Desativado"></h:outputText>
+				<p:selectBooleanCheckbox value="#{TipoDeItemServicoControl.tipodeitemservico.desativado}"></p:selectBooleanCheckbox>
+				
+				
+				<p:commandButton actionListener="#{TipoDeItemServicoControl.confirmar }" value="Confirmar" update="tipoDeItemsServicos, panel"></p:commandButton>
+			</h:panelGrid>
+		</p:panel>
+
+		<p:dataTable id="tipoDeItemsServicos" value="#{TipoDeItemServicoControl.tipoDeItensServicos}"
+			var="cont" width="100%" emptyMessage="Sem registros">
+			<f:facet name="header">
+				<h:outputText value="Lista de Tipo de Items Servicos"></h:outputText>
+			</f:facet>
+			<p:column sortBy="#{cont.descricao }">
+				<f:facet name="header">
+					<h:outputText value="Descricao"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{cont.descricao }"></h:outputText>
+			</p:column>
+			<p:column sortBy="#{cont.desativado }">
+				<f:facet name="header">
+					<h:outputText value="Desativado"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{cont.desativado }"></h:outputText>
+			</p:column>
+		</p:dataTable>
+
+	</ui:define>
+</ui:composition>

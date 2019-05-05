@@ -49,7 +49,7 @@ public class TipoDePrestadorControl {
 		}
 	}
 
-	public TipoDePrestador geTipoDePrestador() {
+	public TipoDePrestador getTipoDePrestador() {
 		return tipoDeprestador;
 	}
 
@@ -57,7 +57,7 @@ public class TipoDePrestadorControl {
 		this.tipoDeprestador = tipoDeprestador;
 	}
 
-	public List<TipoDePrestador> geTipoDePrestadors() {
+	public List<TipoDePrestador> getTipoDePrestadores() {
 		return tipoDeprestadores;
 	}
 
