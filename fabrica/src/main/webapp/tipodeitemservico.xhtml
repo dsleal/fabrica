@@ -26,42 +26,40 @@
 		</p:panel>
 
 		<p:dataTable id="tipoDeItemsServicos"
-			value="#{TipoDeItemServicoControl.tipoDeItensServicos}" var="cont"
+			value="#{TipoDeItemServicoControl.tipoDeItensServicos}" var="tpitemservico"
 			width="100%" emptyMessage="Sem registros">
 			<f:facet name="header">
 				<h:outputText value="Lista de Tipo de Itens Servicos"></h:outputText>
 			</f:facet>
-			<p:column sortBy="#{cont.id }">
+			<p:column sortBy="#{tpitemservico.id }">
 				<f:facet name="header">
 					<h:outputText value="Codigo"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{cont.id }"></h:outputText>
+				<h:outputText value="#{tpitemservico.id }"></h:outputText>
 			</p:column>
-			<p:column sortBy="#{cont.descricao }">
+			<p:column sortBy="#{tpitemservico.descricao }">
 				<f:facet name="header">
 					<h:outputText value="Descricao"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{cont.descricao }"></h:outputText>
+				<h:outputText value="#{tpitemservico.descricao }"></h:outputText>
 			</p:column>
-			<p:column sortBy="#{cont.desativado }">
+			<p:column sortBy="#{tpitemservico.desativado }">
 				<f:facet name="header">
 					<h:outputText value="Desativado"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{cont.desativado }"></h:outputText>
+				<h:outputText value="#{tpitemservico.desativado }"></h:outputText>
 			</p:column>
 
 			<p:column headerText=""  style="width:35px;" >
 				<p:commandButton icon="ui-icon-pencil" title="Editar"
-					ajax="true"
-					actionListener="#{consultarPessoaController.Editar(pessoa)}"
 					update="tipoDeItemsServicos" />
 			</p:column>
 
 			<p:column headerText="" style="width:35px;">
 				<p:commandButton icon="ui-icon-minusthick" title="Remover"
-					ajax="true"
-					actionListener="#{consultarPessoaController.Editar(pessoa)}"
-					update="tipoDeItemsServicos" />
+					actionListener="#{TipoDeItemServicoControl.excluir(tpitemservico.id)}"
+					update="tipoDeItemsServicos"
+					/>
 			</p:column>
 
 

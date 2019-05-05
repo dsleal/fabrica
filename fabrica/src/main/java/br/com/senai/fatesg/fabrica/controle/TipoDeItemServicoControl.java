@@ -18,7 +18,7 @@ import br.com.senai.fatesg.fabrica.persistencia.TipoDePrestadorDao;
 
 @Named("TipoDeItemServicoControl")
 @Scope("conversation")
-public class TipoDeItemServicoControl {
+public class TipoDeItemServicoControl  {
 
 	private TipoDeItemServico tipodeitemservico = new TipoDeItemServico();
 
@@ -38,6 +38,18 @@ public class TipoDeItemServicoControl {
 			tipoDeItemServicoDao.alterar(tipodeitemservico);
 			listar(evt);
 			tipodeitemservico = new TipoDeItemServico();
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
+	public void excluir(int id) {
+		try {
+			tipodeitemservico = tipoDeItemServicoDao.consultar(id);
+			tipoDeItemServicoDao.excluirPorId(tipodeitemservico.getId());	
+			tipodeitemservico = new TipoDeItemServico();
+			tipoDeItensServicos = tipoDeItemServicoDao.listar();
+			
 		} catch (Exception e) {
 			UtilFaces.addMensagemFaces(e);
 		}
