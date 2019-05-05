@@ -41,6 +41,18 @@ public class PrestadorControl {
 			UtilFaces.addMensagemFaces(e);
 		}
 	}
+	public void excluir(int id) {
+		try {
+			prestador = prestadorDao.consultar(id);
+			prestadorDao.excluirPorId(prestador.getId());	
+			prestador = new Prestador();
+			prestadores = prestadorDao.listar();
+			
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+
 
 	public void listar(ActionEvent evt) {
 		try {

@@ -31,22 +31,39 @@
 			</h:panelGrid>
 		</p:panel>
 		
-		<p:dataTable id="prestadores" value="#{PrestadorControl.prestadores }" var="cont"  width="100%" emptyMessage="Sem registros" >
+		<p:dataTable id="prestadores" value="#{PrestadorControl.prestadores }" var="prest"  width="100%" emptyMessage="Sem registros" >
 			<f:facet name="header">
 				<h:outputText value="Lista de Prestadores"></h:outputText>
 			</f:facet>
-			<p:column sortBy="#{cont.nome }">
+			<p:column sortBy="#{prest.id }">
+				<f:facet name="header">
+					<h:outputText value="Codigo"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{prest.id }"></h:outputText>
+			</p:column>
+			<p:column sortBy="#{prest.nome }">
 				<f:facet name="header">
 					<h:outputText value="Nome"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{cont.nome }"></h:outputText>
+				<h:outputText value="#{prest.nome }"></h:outputText>
 			</p:column>	
-			<p:column sortBy="#{cont.telefone }">
+			<p:column sortBy="#{prest.telefone }">
 				<f:facet name="header">
 					<h:outputText value="Telefone"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{cont.telefone }"></h:outputText>
+				<h:outputText value="#{prest.telefone }"></h:outputText>
 			</p:column>	
+			<p:column headerText=""  style="width:35px;" >
+				<p:commandButton icon="ui-icon-pencil" title="Editar"
+					update="prestadores" />
+			</p:column>
+
+			<p:column headerText="" style="width:35px;">
+				<p:commandButton icon="ui-icon-minusthick" title="Remover"
+					actionListener="#{PrestadorControl.excluir(prest.id)}"
+					update="prestadores"
+					/>
+			</p:column>
 		</p:dataTable>
 
 	</ui:define>
