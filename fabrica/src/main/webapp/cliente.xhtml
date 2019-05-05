@@ -27,26 +27,44 @@
 				
 				<h:outputText value="Telefone"></h:outputText>
 				<p:inputMask value="#{ClienteControl.cliente.telefone }" mask="(99) 9999-9999"></p:inputMask>
-				<p:commandButton actionListener="#{ClienteControl.confirmar }" value="Confirmar" update="clientes, panel"></p:commandButton>
+				<p:commandButton actionListener="#{ClienteControl.confirmar }"
+					value="Confirmar" update="clientes, panel"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
 		
-		<p:dataTable id="clientes" value="#{ClienteControl.clientes }" var="cont"  width="100%" emptyMessage="Sem registros" >
+		<p:dataTable id="clientes" value="#{ClienteControl.clientes }" var="clie"  width="100%" emptyMessage="Sem registros" >
 			<f:facet name="header">
 				<h:outputText value="Lista de Clientes"></h:outputText>
 			</f:facet>
-			<p:column sortBy="#{cont.nome }">
+			<p:column sortBy="#{clie.id }">
+				<f:facet name="header">
+					<h:outputText value="Codigo"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{clie.id }"></h:outputText>
+			</p:column>
+			<p:column sortBy="#{clie.nome }">
 				<f:facet name="header">
 					<h:outputText value="Nome"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{cont.nome }"></h:outputText>
+				<h:outputText value="#{clie.nome }"></h:outputText>
 			</p:column>	
-			<p:column sortBy="#{cont.telefone }">
+			<p:column sortBy="#{clie.telefone }">
 				<f:facet name="header">
 					<h:outputText value="Telefone"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{cont.telefone }"></h:outputText>
+				<h:outputText value="#{clie.telefone }"></h:outputText>
 			</p:column>	
+			<p:column headerText=""  style="width:35px;" >
+				<p:commandButton icon="ui-icon-pencil" title="Editar"
+					update="clientes" />
+			</p:column>
+
+			<p:column headerText="" style="width:35px;">
+				<p:commandButton icon="ui-icon-minusthick" title="Remover"
+					actionListener="#{ClienteControl.excluir(clie.id)}"
+					update="clientes"
+					/>
+			</p:column>
 		</p:dataTable>
 
 	</ui:define>

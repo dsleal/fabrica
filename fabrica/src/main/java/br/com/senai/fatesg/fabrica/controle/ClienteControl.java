@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
 import br.com.senai.fatesg.fabrica.entidade.Cliente;
+import br.com.senai.fatesg.fabrica.entidade.TipoDeItemServico;
 import br.com.senai.fatesg.fabrica.persistencia.ClienteDao;
 
 @Named("ClienteControl")
@@ -40,6 +41,17 @@ public class ClienteControl {
          cliente = new Cliente();
 		} catch (Exception e) {
 		   UtilFaces.addMensagemFaces(e);
+		}
+	}
+	public void excluir(int id) {
+		try {
+			cliente = clienteDao.consultar(id);
+			clienteDao.excluirPorId(cliente.getId());	
+			cliente = new Cliente();
+			clientes = clienteDao.listar();
+			
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
 		}
 	}
 
