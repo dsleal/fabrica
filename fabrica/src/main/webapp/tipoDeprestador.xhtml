@@ -22,21 +22,39 @@
 		</p:panel>
 
 		<p:dataTable id="tipoDePrestadores" value="#{TipoDePrestadorControl.tipoDePrestadores}"
-			var="cont" width="100%" emptyMessage="Sem registros">
+			var="tpprestador" width="100%" emptyMessage="Sem registros">
 			<f:facet name="header">
 				<h:outputText value="Lista de TipoDePrestadores"></h:outputText>
 			</f:facet>
-			<p:column sortBy="#{cont.descricao }">
+			<p:column sortBy="#{tpprestador.id }">
+				<f:facet name="header">
+					<h:outputText value="Codigo"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{tpprestador.id }"></h:outputText>
+			</p:column>
+			<p:column sortBy="#{tpprestador.descricao }">
 				<f:facet name="header">
 					<h:outputText value="Descricao"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{cont.descricao }"></h:outputText>
+				<h:outputText value="#{tpprestador.descricao }"></h:outputText>
 			</p:column>
-			<p:column sortBy="#{cont.desativado }">
+			<p:column sortBy="#{tpprestador.desativado }">
 				<f:facet name="header">
 					<h:outputText value="Desativado"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{cont.desativado }"></h:outputText>
+				<h:outputText value="#{tpprestador.desativado }"></h:outputText>
+			</p:column>
+			
+			<p:column headerText=""  style="width:35px;" >
+				<p:commandButton icon="ui-icon-pencil" title="Editar"
+					update="tipoDePrestadores" />
+			</p:column>
+
+			<p:column headerText="" style="width:35px;">
+				<p:commandButton icon="ui-icon-minusthick" title="Remover"
+					actionListener="#{TipoDePrestadorControl.excluir(tpprestador.id)}"
+					update="tipoDePrestadores"
+					/>
 			</p:column>
 		</p:dataTable>
 
