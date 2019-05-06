@@ -8,34 +8,38 @@
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
 
-		<p:panel header="Formulário" id="panel">
+		<p:panel header="Cadastro de Clientes" id="panel">
 			<h:panelGrid columns="4">
-				<h:outputText value="Nome"></h:outputText>
-				<p:inputText value="#{ClienteControl.cliente.nome }"></p:inputText>
-				
+				<h:outputLabel value="Nome"></h:outputLabel>
+				<p:inputText value="#{ClienteControl.cliente.nome }" required="true"></p:inputText>
+
 				<h:outputText value="DataDeNascimento"></h:outputText>
 				<p:calendar></p:calendar>
-				
+
 				<h:outputText value="Identidade"></h:outputText>
 				<p:inputText value="#{ClienteControl.cliente.identidade }"></p:inputText>
-				
+
 				<h:outputText value="Cpf"></h:outputText>
-				<p:inputMask value="#{ClienteControl.cliente.cpf }" mask="999.999.999-99"></p:inputMask>
-				
-				<h:outputText value="Cnpj"></h:outputText>
-				<p:inputMask value="#{ClienteControl.cliente.cnpj }" mask="99.999.999/9999-99"></p:inputMask>
-				
+				<p:inputMask value="#{ClienteControl.cliente.cpf }" required="true"
+					mask="999.999.999-99"></p:inputMask>
+
+				<h:outputText value="Cnpj" ></h:outputText>
+				<p:inputMask value="#{ClienteControl.cliente.cnpj }"
+					mask="99.999.999/9999-99"></p:inputMask>
+
 				<h:outputText value="Telefone"></h:outputText>
-				<p:inputMask value="#{ClienteControl.cliente.telefone }" mask="(99) 9999-9999"></p:inputMask>
+				<p:inputMask value="#{ClienteControl.cliente.telefone }"
+					mask="(99) 9999-9999"></p:inputMask>
 				<p:commandButton actionListener="#{ClienteControl.novo }"
 					value="Novo" update="clientes, panel"></p:commandButton>
-								<p:commandButton actionListener="#{ClienteControl.confirmar }"
+				<p:commandButton actionListener="#{ClienteControl.confirmar }"
 					value="Confirmar" update="clientes, panel"></p:commandButton>
-					
+
 			</h:panelGrid>
 		</p:panel>
-		
-		<p:dataTable id="clientes" value="#{ClienteControl.clientes }" var="clie"  width="100%" emptyMessage="Sem registros" >
+
+		<p:dataTable id="clientes" value="#{ClienteControl.clientes }"
+			var="clie" width="100%" emptyMessage="Sem registros">
 			<f:facet name="header">
 				<h:outputText value="Lista de Clientes"></h:outputText>
 			</f:facet>
@@ -50,25 +54,42 @@
 					<h:outputText value="Nome"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{clie.nome }"></h:outputText>
-			</p:column>	
+			</p:column>
+			<p:column sortBy="#{clie.cnpj }">
+				<f:facet name="header">
+					<h:outputText value="Cnpj"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{clie.cnpj }"></h:outputText>
+			</p:column>
+			<p:column sortBy="#{clie.cpf }">
+				<f:facet name="header">
+					<h:outputText value="Cpf"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{clie.cpf }"></h:outputText>
+			</p:column>
+				<p:column sortBy="#{clie.identidade }">
+				<f:facet name="header">
+					<h:outputText value="Identidade"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{clie.identidade }"></h:outputText>
+			</p:column>
 			<p:column sortBy="#{clie.telefone }">
 				<f:facet name="header">
 					<h:outputText value="Telefone"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{clie.telefone }"></h:outputText>
-			</p:column>	
-			<p:column headerText=""  style="width:35px;" >
+			</p:column>
+			<p:column headerText="" style="width:35px;">
 				<p:commandButton icon="ui-icon-pencil" title="Editar"
 					actionListener="#{ClienteControl.editar(clie)}"
-					update="formCorpo:panel">  
-				</p:commandButton>	
+					update="formCorpo:panel">
+				</p:commandButton>
 			</p:column>
 
 			<p:column headerText="" style="width:35px;">
-				<p:commandButton icon="ui-icon-minusthick" title="Remover"
+				<p:commandButton icon="ui-icon-trash" title="Remover"
 					actionListener="#{ClienteControl.excluir(clie.id)}"
-					update="clientes"
-					/>
+					update="clientes" />
 			</p:column>
 		</p:dataTable>
 

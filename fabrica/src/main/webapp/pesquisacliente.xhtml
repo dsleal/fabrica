@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="titulo">PESQUISA CLIENTES</ui:define>
+
+	<ui:define name="corpo">
+
+		<h:form>
+			<p:panel header="Pesquisa de Clientes" id="panel">
+
+				<p:toolbar style="margin-top: 20px">
+					<p:toolbarGroup>
+						<p:commandButton value="Pesquisar" action="#{ClienteControl.clientes}"/>
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:button value="Novo" outcome="cliente" />
+					</p:toolbarGroup>
+				</p:toolbar>
+
+				<p:panelGrid columns="2" id="painel"
+					style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+					<p:outputLabel value="CNPJ" for="cnpj" />
+					<p:inputText id="cnpj" size="20" value="#{ClienteControl.cliente.cnpj}"/>
+
+					<p:outputLabel value="Nome" for="nome" />
+					<p:inputText id="nome" size="60" value="#{ClienteControl.cliente.nome}"/>
+				</p:panelGrid>
+			</p:panel>
+
+			<p:dataTable id="clientesTable" value="#{ClienteControl.clientes}"
+				var="cont" style="margin-top: 20px"
+				emptyMessage="Nenhum cliente encontrado." rows="20" paginator="true"
+				paginatorAlwaysVisible="false" paginatorPosition="bottom">
+				<p:column headerText="Nome" style="text-align: center; width: 200px">
+					<h:outputText value="#{cont.nome }"></h:outputText>
+				</p:column>
+				<p:column headerText="Cnpj" style="width: 120px">
+					<h:outputText value="#{cont.cnpj }"></h:outputText>
+				</p:column>
+				<p:column headerText="Cpf" style="width: 120px">
+					<h:outputText value="#{cont.cpf }"></h:outputText>
+				</p:column>
+				<p:column headerText="Identidade"
+					style="text-align: right; width: 120px">
+					<h:outputText value="#{cont.identidade }"></h:outputText>
+				</p:column>
+				<p:column headerText="Telefone"
+					style="text-align: center; width: 130px">
+					<h:outputText value="#{cont.telefone }"></h:outputText>
+				</p:column>
+				<p:column style="width: 100px; text-align: center">
+					<p:button icon="ui-icon-pencil" title="Editar" />
+					<p:commandButton icon="ui-icon-trash" title="Excluir" />
+				</p:column>
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

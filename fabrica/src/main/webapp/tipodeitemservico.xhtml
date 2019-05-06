@@ -8,7 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
 
-		<p:panel header="Formulário" id="panel">
+		<p:panel header="Cadastro de item de Serviço" id="panel">
 			<h:panelGrid columns="2">
 				<h:outputText value="Descricao"></h:outputText>
 				<p:inputText
@@ -61,7 +61,7 @@
 			</p:column>
 
 			<p:column headerText="" style="width:35px;">
-				<p:commandButton icon="ui-icon-minusthick" title="Remover"
+				<p:commandButton icon="ui-icon-trash" title="Remover"
 					actionListener="#{TipoDeItemServicoControl.excluir(tpitemservico.id)}"
 					update="tipoDeItemsServicos"
 					/>

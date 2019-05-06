@@ -8,7 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo" id="corpo">
 
-		<p:panel header="Formulário" id="panel">
+		<p:panel header="Cadastro de Prestadores" id="panel">
 			<h:panelGrid columns="4">
 				<h:outputText value="Nome"></h:outputText>
 				<p:inputText value="#{PrestadorControl.prestador.nome }"></p:inputText>
@@ -27,7 +27,7 @@
 				
 				<h:outputText value="Telefone"></h:outputText>
 				<p:inputMask value="#{PrestadorControl.prestador.telefone }" mask="(99) 9999-9999"></p:inputMask>
-				<p:commandButton actionListener="#{PrestadorControl.incluir }" value="Novo" update="prestadores, panel"></p:commandButton>
+				<p:commandButton actionListener="#{PrestadorControl.novo }" value="Novo" update="prestadores, panel"></p:commandButton>
 				<p:commandButton actionListener="#{PrestadorControl.confirmar }" value="Confirmar" update="prestadores, panel"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
@@ -36,7 +36,7 @@
 			<f:facet name="header">
 				<h:outputText value="Lista de Prestadores"></h:outputText>
 			</f:facet>
-			<p:column sortBy="#{prest.id }">
+						<p:column sortBy="#{prest.id }">
 				<f:facet name="header">
 					<h:outputText value="Codigo"></h:outputText>
 				</f:facet>
@@ -47,13 +47,31 @@
 					<h:outputText value="Nome"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{prest.nome }"></h:outputText>
-			</p:column>	
+			</p:column>
+			<p:column sortBy="#{prest.cnpj }">
+				<f:facet name="header">
+					<h:outputText value="Cnpj"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{prest.cnpj }"></h:outputText>
+			</p:column>
+			<p:column sortBy="#{prest.cpf }">
+				<f:facet name="header">
+					<h:outputText value="Cpf"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{prest.cpf }"></h:outputText>
+			</p:column>
+				<p:column sortBy="#{clie.identidade }">
+				<f:facet name="header">
+					<h:outputText value="Identidade"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{prest.identidade }"></h:outputText>
+			</p:column>
 			<p:column sortBy="#{prest.telefone }">
 				<f:facet name="header">
 					<h:outputText value="Telefone"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{prest.telefone }"></h:outputText>
-			</p:column>	
+			</p:column>
 			<p:column headerText=""  style="width:35px;" >
 				<p:commandButton icon="ui-icon-pencil" title="Editar" actionListener="#{PrestadorControl.editar(prest)}"
 					update="formCorpo:panel">
@@ -61,7 +79,7 @@
 			</p:column>
 
 			<p:column headerText="" style="width:35px;">
-				<p:commandButton icon="ui-icon-minusthick" title="Remover"
+				<p:commandButton icon="ui-icon-trash" title="Remover"
 					actionListener="#{PrestadorControl.excluir(prest.id)}"
 					update="prestadores">
 				</p:commandButton>
