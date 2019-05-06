@@ -20,6 +20,9 @@
 
 
 				<p:commandButton
+					actionListener="#{TipoDeItemServicoControl.novo }"
+					value="Novo" update="tipoDeItemsServicos, panel"></p:commandButton>
+				<p:commandButton
 					actionListener="#{TipoDeItemServicoControl.confirmar }"
 					value="Confirmar" update="tipoDeItemsServicos, panel"></p:commandButton>
 			</h:panelGrid>
@@ -52,7 +55,9 @@
 
 			<p:column headerText=""  style="width:35px;" >
 				<p:commandButton icon="ui-icon-pencil" title="Editar"
-					update="tipoDeItemsServicos" />
+					actionListener="#{TipoDeItemServicoControl.editar(tpitemservico)}"
+					update="formCorpo:panel">  
+				</p:commandButton>
 			</p:column>
 
 			<p:column headerText="" style="width:35px;">

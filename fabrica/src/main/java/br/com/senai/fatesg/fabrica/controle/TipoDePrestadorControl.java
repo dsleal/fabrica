@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
+import br.com.senai.fatesg.fabrica.entidade.Prestador;
 import br.com.senai.fatesg.fabrica.entidade.TipoDeItemServico;
 import br.com.senai.fatesg.fabrica.entidade.TipoDePrestador;
 import br.com.senai.fatesg.fabrica.persistencia.TipoDePrestadorDao;
@@ -34,9 +35,31 @@ public class TipoDePrestadorControl {
 
 	public void confirmar(ActionEvent evt) {
 		try {
-			tipoDePrestadorDao.alterar(tipoDeprestador);
+			if (tipoDeprestador.getId()==null) {
+				tipoDePrestadorDao.incluir(tipoDeprestador);
+				novo();
+			} else {
+				tipoDePrestadorDao.alterar(tipoDeprestador);
+			}
+				
 			listar(evt);
-			tipoDeprestador = new TipoDePrestador();
+			
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
+	public void novo() {
+		try {
+			tipoDeprestador = new TipoDePrestador();						
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
+	public void editar(TipoDePrestador tipoDeprestador) {
+		try {
+			this.tipoDeprestador = tipoDeprestador;						
 		} catch (Exception e) {
 			UtilFaces.addMensagemFaces(e);
 		}

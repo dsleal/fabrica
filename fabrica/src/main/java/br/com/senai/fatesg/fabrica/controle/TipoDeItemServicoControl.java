@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
+import br.com.senai.fatesg.fabrica.entidade.Prestador;
 import br.com.senai.fatesg.fabrica.entidade.TipoDeItemServico;
 import br.com.senai.fatesg.fabrica.entidade.TipoDePrestador;
 import br.com.senai.fatesg.fabrica.persistencia.TipoDeItemServicoDao;
@@ -35,9 +36,31 @@ public class TipoDeItemServicoControl  {
 
 	public void confirmar(ActionEvent evt) {
 		try {
-			tipoDeItemServicoDao.alterar(tipodeitemservico);
+			if (tipodeitemservico.getId()==null) {
+				tipoDeItemServicoDao.incluir(tipodeitemservico);
+				novo();
+			} else {
+				tipoDeItemServicoDao.alterar(tipodeitemservico);
+			}		
+			
 			listar(evt);
-			tipodeitemservico = new TipoDeItemServico();
+			
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
+	public void novo() {
+		try {
+			tipodeitemservico = new TipoDeItemServico();						
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
+	public void editar(TipoDeItemServico tipodeitemservico) {
+		try {
+			this.tipodeitemservico = tipodeitemservico;						
 		} catch (Exception e) {
 			UtilFaces.addMensagemFaces(e);
 		}

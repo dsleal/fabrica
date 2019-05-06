@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
 import br.com.senai.fatesg.fabrica.entidade.Contato;
+import br.com.senai.fatesg.fabrica.entidade.Prestador;
 import br.com.senai.fatesg.fabrica.persistencia.ContatoDao;
 
 @Named("ContatoControl")
@@ -36,12 +37,34 @@ public class ContatoControl {
    }
    
 	public void confirmar(ActionEvent evt){
-		try {
-			contatoDao.alterar(contato);
+		try { 
+			if(contato.getId() == null) {
+				contatoDao.incluir(contato);
+				novo();
+			} else {
+				contatoDao.alterar(contato);
+			}		
+			
          listar(evt);
-         contato = new Contato();
+         
 		} catch (Exception e) {
 		   UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
+	public void novo() {
+		try {
+			contato = new Contato();						
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
+	public void editar(Contato contato) {
+		try {
+			this.contato = contato;						
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
 		}
 	}
 

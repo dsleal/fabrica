@@ -14,6 +14,7 @@
 				<p:inputText value="#{ContatoControl.contato.nome }"></p:inputText>
 				<h:outputText value="Telefone"></h:outputText>
 				<p:inputMask value="#{ContatoControl.contato.telefone }" mask="(99) 9999-9999"></p:inputMask>
+				<p:commandButton actionListener="#{ContatoControl.novo }" value="Novo" update="contatos, panel"></p:commandButton>
 				<p:commandButton actionListener="#{ContatoControl.confirmar }" value="Confirmar" update="contatos, panel"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
@@ -34,6 +35,18 @@
 				</f:facet>
 				<h:outputText value="#{cont.telefone }"></h:outputText>
 			</p:column>	
+			<p:column headerText=""  style="width:35px;" >
+				<p:commandButton icon="ui-icon-pencil" title="Editar"
+					actionListener="#{ContatoControl.editar(cont)}"
+					update="formCorpo:panel">  />
+			</p:column>
+
+			<p:column headerText="" style="width:35px;">
+				<p:commandButton icon="ui-icon-minusthick" title="Remover"
+					actionListener="#{ContatoControl.excluir(cont.id)}"
+					update="contatos"
+					/>
+			</p:column>
 		</p:dataTable>
 
 	</ui:define>

@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
 import br.com.senai.fatesg.fabrica.entidade.Cliente;
+import br.com.senai.fatesg.fabrica.entidade.Contato;
 import br.com.senai.fatesg.fabrica.entidade.TipoDeItemServico;
 import br.com.senai.fatesg.fabrica.persistencia.ClienteDao;
 
@@ -36,13 +37,34 @@ public class ClienteControl {
    
 	public void confirmar(ActionEvent evt){
 		try {
-			clienteDao.alterar(cliente);
-         listar(evt);
-         cliente = new Cliente();
+			if(cliente.getId() == null) {
+				clienteDao.incluir(cliente);
+				novo();
+			} else {
+				clienteDao.alterar(cliente);
+			}			
+         listar(evt);         
 		} catch (Exception e) {
 		   UtilFaces.addMensagemFaces(e);
 		}
 	}
+	
+	public void novo() {
+		try {
+			cliente = new Cliente();						
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
+	public void editar(Cliente cliente) {
+		try {
+			this.cliente = cliente;						
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
 	public void excluir(int id) {
 		try {
 			cliente = clienteDao.consultar(id);

@@ -17,6 +17,7 @@
 				<p:selectBooleanCheckbox value="#{TipoDePrestadorControl.tipoDePrestador.desativado}"></p:selectBooleanCheckbox>
 				
 				
+				<p:commandButton actionListener="#{TipoDePrestadorControl.novo }" value="Novo" update="tipoDePrestadores, panel"></p:commandButton>
 				<p:commandButton actionListener="#{TipoDePrestadorControl.confirmar }" value="Confirmar" update="tipoDePrestadores, panel"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
@@ -47,7 +48,9 @@
 			
 			<p:column headerText=""  style="width:35px;" >
 				<p:commandButton icon="ui-icon-pencil" title="Editar"
-					update="tipoDePrestadores" />
+					actionListener="#{TipoDePrestadorControl.editar(tpprestador)}"
+					update="formCorpo:panel">  
+				</p:commandButton>
 			</p:column>
 
 			<p:column headerText="" style="width:35px;">

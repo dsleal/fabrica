@@ -34,9 +34,29 @@ public class PrestadorControl {
 
 	public void confirmar(ActionEvent evt) {
 		try {
-			prestadorDao.alterar(prestador);
-			listar(evt);
-			prestador = new Prestador();
+			if( prestador.getId() == null) {
+				prestadorDao.incluir(prestador);
+				novo();
+			}
+			else {				
+				prestadorDao.alterar(prestador);
+			}
+			listar(evt);			
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	public void novo() {
+		try {
+			prestador = new Prestador();						
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+	
+	public void editar(Prestador prestador) {
+		try {
+			this.prestador = prestador;						
 		} catch (Exception e) {
 			UtilFaces.addMensagemFaces(e);
 		}
