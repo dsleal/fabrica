@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="corpo">
+
+		<p:panel header="Cadastro de Usuarios" id="panel">
+			<h:panelGrid columns="2">
+				<h:outputText value="Nome"></h:outputText>
+				<p:inputText value="#{UsuarioControl.usuario.nome}"></p:inputText>
+
+				<h:outputText value="Login"></h:outputText>
+				<p:inputText value="#{UsuarioControl.usuario.login}"></p:inputText>
+
+				<h:outputText value="Senha"></h:outputText>
+				<p:password value="#{UsuarioControl.usuario.senha}" />
+								
+				<h:outputText value="Ativo"></h:outputText>
+				<p:selectBooleanCheckbox value="#{UsuarioControl.usuario.ativo}"></p:selectBooleanCheckbox>
+
+				
+				<p:commandButton actionListener="#{UsuarioControl.novo }"
+					value="Novo" update="usuarios, panel"></p:commandButton>
+				<p:commandButton
+					actionListener="#{UsuarioControl.confirmar }"
+					value="Confirmar" update="usuarios, panel"></p:commandButton>
+			</h:panelGrid>
+		</p:panel>
+
+		<p:dataTable id="usuarios"
+			value="#{UsuarioControl.usuarios}"
+			var="user" width="100%" emptyMessage="Sem registros">
+			<f:facet name="header">
+				<h:outputText value="Lista de Usuarios"></h:outputText>
+			</f:facet>
+			<p:column sortBy="#{user.login }">
+				<f:facet name="header">
+					<h:outputText value="Login"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{user.id }"></h:outputText>
+			</p:column>
+			<p:column sortBy="#{user.nome}">
+				<f:facet name="header">
+					<h:outputText value="Nome"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{user.nome}"></h:outputText>
+			</p:column>
+			<p:column sortBy="#{user.ativo}">
+				<f:facet name="header">
+					<h:outputText value="Ativo"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{user.ativo }"></h:outputText>
+			</p:column>
+
+			<p:column headerText="" style="width:35px;">
+				<p:commandButton icon="ui-icon-pencil" title="Editar"
+					actionListener="#{UsuarioControl.editar(user)}"
+					update="formCorpo:panel">
+				</p:commandButton>
+			</p:column>
+
+			<p:column headerText="" style="width:35px;">
+				<p:commandButton icon="ui-icon-trash" title="Remover"
+					actionListener="#{UsuarioControl.excluir(user.login)}"
+					update="usuarios" />
+			</p:column>
+
+
+		</p:dataTable>
+
+	</ui:define>
+</ui:composition>

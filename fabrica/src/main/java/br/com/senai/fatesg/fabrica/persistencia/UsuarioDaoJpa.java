@@ -9,5 +9,6 @@ import br.com.senai.fatesg.fabrica.entidade.Usuario;
 public class UsuarioDaoJpa extends PersistenciaJpa<Usuario> implements UsuarioDao{
 
    private static final long serialVersionUID = 1L;
-
+   
+   
 }

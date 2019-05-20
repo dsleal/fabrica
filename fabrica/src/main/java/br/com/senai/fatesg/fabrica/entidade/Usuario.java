@@ -63,8 +63,38 @@ public class Usuario extends Entidade{
    private Set<PapelUsuario> papeis = new HashSet<PapelUsuario>();
    
    private boolean ativo;
+   
+   private boolean funcionario;
+   
+   private int id_prestador;
+   
+   private int id_cliente;
 
-   public String getLogin() {
+   public boolean isFuncionario() {
+	return funcionario;
+}
+
+public void setFuncionario(boolean funcionario) {
+	this.funcionario = funcionario;
+}
+
+public int getId_prestador() {
+	return id_prestador;
+}
+
+public void setId_prestador(int id_prestador) {
+	this.id_prestador = id_prestador;
+}
+
+public int getId_cliente() {
+	return id_cliente;
+}
+
+public void setId_cliente(int id_cliente) {
+	this.id_cliente = id_cliente;
+}
+
+public String getLogin() {
       return login;
    }
 
@@ -76,7 +106,8 @@ public class Usuario extends Entidade{
       return senha;
    }
 
-   public void setSenhaNaoCriptografada(String senha) {
+   //public void setSenhaNaoCriptografada(String senha) {
+   public void setSenha(String senha) {
       this.senha = UtilHash.gerarStringHash(senha, Algoritimo.MD5);
    }
 
@@ -99,6 +130,7 @@ public class Usuario extends Entidade{
    public Date getDataCriacao() {
       return dataCriacao;
    }
+   
 
    public void setDataCriacao(Date dataCriacao) {
       this.dataCriacao = dataCriacao;
