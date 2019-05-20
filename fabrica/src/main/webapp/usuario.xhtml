@@ -8,7 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
 
-		<p:panel header="Cadastro de Usuarios" id="panel">
+		<p:panel header="Cadastro de Usuários" id="panel">
 			<h:panelGrid columns="2">
 				<h:outputText value="Nome"></h:outputText>
 				<p:inputText value="#{UsuarioControl.usuario.nome}"></p:inputText>
@@ -35,7 +35,7 @@
 			value="#{UsuarioControl.usuarios}"
 			var="user" width="100%" emptyMessage="Sem registros">
 			<f:facet name="header">
-				<h:outputText value="Lista de Usuarios"></h:outputText>
+				<h:outputText value="Lista de Usuários"></h:outputText>
 			</f:facet>
 			<p:column sortBy="#{user.login }">
 				<f:facet name="header">

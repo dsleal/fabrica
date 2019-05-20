@@ -68,10 +68,10 @@ public class UsuarioControl {
 		}
 	}
 	
-	public void excluir(int id) {
+	public void excluir(String login) {
 		try {
-			usuario = usuarioDao.consultar(id);
-			usuarioDao.excluirPorId(usuario.getId());	
+			usuario = usuarioDao.consultar(login);
+			usuarioDao.excluirPorId(usuario.getLogin());	
 			usuario = new Usuario();
 			usuarios = usuarioDao.listar();
 			
