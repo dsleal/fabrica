@@ -19,18 +19,20 @@
 					value="#{TipoDeItemServicoControl.tipodeitemservico.desativado}"></p:selectBooleanCheckbox>
 
 
-				<p:commandButton
-					actionListener="#{TipoDeItemServicoControl.novo }"
+				<p:commandButton actionListener="#{TipoDeItemServicoControl.novo }"
 					value="Novo" update="tipoDeItemsServicos, panel"></p:commandButton>
 				<p:commandButton
 					actionListener="#{TipoDeItemServicoControl.confirmar }"
 					value="Confirmar" update="tipoDeItemsServicos, panel"></p:commandButton>
-			</h:panelGrid>
+			
+				<p:commandButton action="administrador.xhtml" value="Voltar"></p:commandButton>
+
+				</h:panelGrid>
 		</p:panel>
 
 		<p:dataTable id="tipoDeItemsServicos"
-			value="#{TipoDeItemServicoControl.tipoDeItensServicos}" var="tpitemservico"
-			width="100%" emptyMessage="Sem registros">
+			value="#{TipoDeItemServicoControl.tipoDeItensServicos}"
+			var="tpitemservico" width="100%" emptyMessage="Sem registros">
 			<f:facet name="header">
 				<h:outputText value="Lista de Tipo de Itens Servicos"></h:outputText>
 			</f:facet>
@@ -53,18 +55,17 @@
 				<h:outputText value="#{tpitemservico.desativado }"></h:outputText>
 			</p:column>
 
-			<p:column headerText=""  style="width:35px;" >
+			<p:column headerText="" style="width:35px;">
 				<p:commandButton icon="ui-icon-pencil" title="Editar"
 					actionListener="#{TipoDeItemServicoControl.editar(tpitemservico)}"
-					update="formCorpo:panel">  
+					update="formCorpo:panel">
 				</p:commandButton>
 			</p:column>
 
 			<p:column headerText="" style="width:35px;">
 				<p:commandButton icon="ui-icon-trash" title="Remover"
 					actionListener="#{TipoDeItemServicoControl.excluir(tpitemservico.id)}"
-					update="tipoDeItemsServicos"
-					/>
+					update="tipoDeItemsServicos" />
 			</p:column>
 
 

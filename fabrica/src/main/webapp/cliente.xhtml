@@ -11,7 +11,7 @@
 		<p:panel header="Cadastro de Clientes" id="panel">
 			<h:panelGrid columns="4">
 				<h:outputLabel value="Nome"></h:outputLabel>
-				<p:inputText value="#{ClienteControl.cliente.nome }" required="true"></p:inputText>
+				<p:inputText value="#{ClienteControl.cliente.nome }"></p:inputText>
 
 				<h:outputText value="DataDeNascimento"></h:outputText>
 				<p:calendar></p:calendar>
@@ -20,10 +20,10 @@
 				<p:inputText value="#{ClienteControl.cliente.identidade }"></p:inputText>
 
 				<h:outputText value="Cpf"></h:outputText>
-				<p:inputMask value="#{ClienteControl.cliente.cpf }" required="true"
+				<p:inputMask value="#{ClienteControl.cliente.cpf }" 
 					mask="999.999.999-99"></p:inputMask>
 
-				<h:outputText value="Cnpj" ></h:outputText>
+				<h:outputText value="Cnpj"></h:outputText>
 				<p:inputMask value="#{ClienteControl.cliente.cnpj }"
 					mask="99.999.999/9999-99"></p:inputMask>
 
@@ -34,6 +34,8 @@
 					value="Novo" update="clientes, panel"></p:commandButton>
 				<p:commandButton actionListener="#{ClienteControl.confirmar }"
 					value="Confirmar" update="clientes, panel"></p:commandButton>
+				<p:commandButton action="administrador.xhtml" value="Voltar"></p:commandButton>
+
 
 			</h:panelGrid>
 		</p:panel>
@@ -67,7 +69,7 @@
 				</f:facet>
 				<h:outputText value="#{clie.cpf }"></h:outputText>
 			</p:column>
-				<p:column sortBy="#{clie.identidade }">
+			<p:column sortBy="#{clie.identidade }">
 				<f:facet name="header">
 					<h:outputText value="Identidade"></h:outputText>
 				</f:facet>

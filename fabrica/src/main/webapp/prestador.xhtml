@@ -29,6 +29,8 @@
 				<p:inputMask value="#{PrestadorControl.prestador.telefone }" mask="(99) 9999-9999"></p:inputMask>
 				<p:commandButton actionListener="#{PrestadorControl.novo }" value="Novo" update="prestadores, panel"></p:commandButton>
 				<p:commandButton actionListener="#{PrestadorControl.confirmar }" value="Confirmar" update="prestadores, panel"></p:commandButton>
+				<p:commandButton action="administrador.xhtml" value="Voltar" ></p:commandButton>
+		
 			</h:panelGrid>
 		</p:panel>
 		

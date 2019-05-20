@@ -18,21 +18,21 @@
 
 				<h:outputText value="Senha"></h:outputText>
 				<p:password value="#{UsuarioControl.usuario.senha}" />
-								
+
 				<h:outputText value="Ativo"></h:outputText>
 				<p:selectBooleanCheckbox value="#{UsuarioControl.usuario.ativo}"></p:selectBooleanCheckbox>
 
-				
+
 				<p:commandButton actionListener="#{UsuarioControl.novo }"
 					value="Novo" update="usuarios, panel"></p:commandButton>
-				<p:commandButton
-					actionListener="#{UsuarioControl.confirmar }"
+				<p:commandButton actionListener="#{UsuarioControl.confirmar }"
 					value="Confirmar" update="usuarios, panel"></p:commandButton>
+				<p:commandButton action="administrador.xhtml" value="Voltar"></p:commandButton>
+
 			</h:panelGrid>
 		</p:panel>
 
-		<p:dataTable id="usuarios"
-			value="#{UsuarioControl.usuarios}"
+		<p:dataTable id="usuarios" value="#{UsuarioControl.usuarios}"
 			var="user" width="100%" emptyMessage="Sem registros">
 			<f:facet name="header">
 				<h:outputText value="Lista de Usuários"></h:outputText>
