@@ -22,69 +22,78 @@ import br.com.senai.fatesg.fabrica.persistencia.ClienteDao;
 public class ClienteControl {
 
 	private Cliente cliente = new Cliente();
-	
+
 	@Autowired
 	private ClienteDao clienteDao;
 	
+	private String nome;
+
 	private List<Cliente> clientes = new ArrayList<Cliente>();
-	
-   @PostConstruct
-   public void init(){
-      listar(null);
-      
-     
-   }
-   
-	public void confirmar(ActionEvent evt){
+
+	@PostConstruct
+	public void init() {
+		listar(null);
+
+	}
+
+	public void confirmar(ActionEvent evt) {
 		try {
-			if(cliente.getId() == null) {
+			if (cliente.getId() == null) {
 				clienteDao.incluir(cliente);
 				novo();
 			} else {
 				clienteDao.alterar(cliente);
-			}			
-         listar(evt);         
-		} catch (Exception e) {
-		   UtilFaces.addMensagemFaces(e);
-		}
-	}
-	
-	public void novo() {
-		try {
-			cliente = new Cliente();						
-		} catch (Exception e) {
-			UtilFaces.addMensagemFaces(e);
-		}
-	}
-	
-	public void editar(Cliente cliente) {
-		try {
-			this.cliente = cliente;						
-		} catch (Exception e) {
-			UtilFaces.addMensagemFaces(e);
-		}
-	}
-	
-	public void excluir(int id) {
-		try {
-			cliente = clienteDao.consultar(id);
-			clienteDao.excluirPorId(cliente.getId());	
-			cliente = new Cliente();
-			clientes = clienteDao.listar();
-			
+			}
+			listar(evt);
 		} catch (Exception e) {
 			UtilFaces.addMensagemFaces(e);
 		}
 	}
 
-	public void listar(ActionEvent evt){
+	public void novo() {
+		try {
+			cliente = new Cliente();
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+
+	public void editar(Cliente cliente) {
+		try {
+			this.cliente = cliente;
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+
+	public void excluir(int id) {
+		try {
+			cliente = clienteDao.consultar(id);
+			clienteDao.excluirPorId(cliente.getId());
+			cliente = new Cliente();
+			clientes = clienteDao.listar();
+
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+
+	public void listarPorNome() {
+		try {
+			clientes = clienteDao.listarPorNome(this.nome);
+		} catch (Exception e) {
+			UtilFaces.addMensagemFaces(e);
+		}
+	}
+
+	public void listar(ActionEvent evt) {
 		try {
 			clientes = clienteDao.listar();
 		} catch (Exception e) {
-		   UtilFaces.addMensagemFaces(e);
+			UtilFaces.addMensagemFaces(e);
 		}
 	}
-	
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -92,10 +101,9 @@ public class ClienteControl {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
+
 	public List<Cliente> getClientes() {
 		return clientes;
 	}
 
 }
-

@@ -7,15 +7,37 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
+	<title>Fabrica</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8" />
+	<meta name="description" content="Sistema para gestão de floricultura" />
+	<meta name="author" content="Wendel Guedes" />
+	<link rel="shortcut icon" href="images/favicon.ico" />
 
-
+	<!-- CSS -->
+	<h:outputStylesheet library="css" name="estilo.css"/>
 </h:head>
+
 <h:body>
 
 	<h:form id="formCorpo">
-		<p:growl autoUpdate="true"></p:growl>
+		<p:growl autoUpdate="true"/>
+		<p:menubar>
+			<p:menuitem value="Inicio" url="template.xhtml" icon="ui-icon-home" />
+			<p:menuitem value="Clientes"  action="cliente.xhtml?faces-redirect=true"  icon="ui-icon-search" ajax="false" />
+			<p:menuitem value="Prestadores"  action="prestador.xhtml?faces-redirect=true"  icon="ui-icon-search" ajax="false" />
+			<p:menuitem value="Tipo de Prestador"  action="tipodeprestador.xhtml?faces-redirect=true"  icon="ui-icon-search" ajax="false" />
+			<p:menuitem value="Tipo de Item de Servico"  action="tipodeitemservico.xhtml?faces-redirect=true"  icon="ui-icon-search" ajax="false" />
+			<p:menuitem value="Usuários"  action="usuario?faces-redirect=true"  icon="ui-icon-search" ajax="false" />
+			
+			<f:facet name="options">
+				<p:commandButton type="button" value="Sair" onclick="document.location.href='sair.jsp';" icon="ui-icon-extlink" />
+			</f:facet>			
+		</p:menubar>
+		<p:messages autoUpdate="true"/>
 		<ui:insert name="corpo" />
 	</h:form>
 
 </h:body>
 </html>
+

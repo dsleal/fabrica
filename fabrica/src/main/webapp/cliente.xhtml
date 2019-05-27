@@ -20,12 +20,18 @@
 				<p:inputText value="#{ClienteControl.cliente.identidade }"></p:inputText>
 
 				<h:outputText value="Cpf"></h:outputText>
-				<p:inputMask value="#{ClienteControl.cliente.cpf }" 
+				<p:inputMask value="#{ClienteControl.cliente.cpf }"
 					mask="999.999.999-99"></p:inputMask>
 
 				<h:outputText value="Cnpj"></h:outputText>
 				<p:inputMask value="#{ClienteControl.cliente.cnpj }"
 					mask="99.999.999/9999-99"></p:inputMask>
+
+				<h:outputLabel value="E-mail"></h:outputLabel>
+				<p:inputText value="#{ClienteControl.cliente.email }"></p:inputText>
+				
+				<h:outputLabel value="Endereço"></h:outputLabel>
+				<p:inputText value="#{ClienteControl.cliente.endereco }"></p:inputText>
 
 				<h:outputText value="Telefone"></h:outputText>
 				<p:inputMask value="#{ClienteControl.cliente.telefone }"
