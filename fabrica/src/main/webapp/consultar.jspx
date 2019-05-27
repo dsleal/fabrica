@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://www.ambientinformatica.com.br/jsf2"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="corpo">
+
+		<p:panel id="panelGeral" header="Pesquisar Clientes Cadastradas">
+
+			<a:field label="Nome do Cliente">
+				<p:inputText value="#{ClienteControl.nome}" style="width:400px;" />
+			</a:field>
+
+			<a:field spaceLeft="10px">
+				<p:commandButton actionListener="#{ClienteControl.listarPorNome}"
+					value="Pesquisar" icon="ui-icon ui-icon-search"
+					update="tblInstituicao" />
+			</a:field>
+
+			<a:field spaceLeft="10px">
+				<p:commandButton actionListener="#{MenuControlador.gerenciarSessao}"
+					ajax="false" action="cliente?faces-redirect=true" value="Cadastrar"
+					icon="ui-icon-plus" />
+			</a:field>
+
+			<a:field spaceLeft="10px">
+				<p:commandButton value="Limpar"
+					actionListener="#{MenuControlador.gerenciarSessao}" ajax="false"
+					action="consultar?faces-redirect=true" icon="ui-icon ui-icon-trash" />
+			</a:field>
+
+			<a:newLine />
+
+			<p:dataTable id="clientes" value="#{ClienteControl.clientes }"
+				var="clie" width="100%" emptyMessage="Sem registros">
+				<f:facet name="header">
+					<h:outputText value="Lista de Clientes"></h:outputText>
+				</f:facet>
+				<p:column sortBy="#{clie.id }">
+					<f:facet name="header">
+						<h:outputText value="Codigo"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{clie.id }"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{clie.nome }">
+					<f:facet name="header">
+						<h:outputText value="Nome"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{clie.nome }"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{clie.cnpj }">
+					<f:facet name="header">
+						<h:outputText value="Cnpj"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{clie.cnpj }"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{clie.cpf }">
+					<f:facet name="header">
+						<h:outputText value="Cpf"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{clie.cpf }"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{clie.identidade }">
+					<f:facet name="header">
+						<h:outputText value="Identidade"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{clie.identidade }"></h:outputText>
+				</p:column>
+				<p:column sortBy="#{clie.telefone }">
+					<f:facet name="header">
+						<h:outputText value="Telefone"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{clie.telefone }"></h:outputText>
+				</p:column>
+				<p:column headerText="" style="width:35px;">
+					<p:commandButton icon="ui-icon-pencil" title="Editar"
+						actionListener="#{ClienteControl.editar(clie)}"
+						update="formCorpo:panel">
+					</p:commandButton>
+				</p:column>
+
+				<p:column headerText="" style="width:35px;">
+					<p:commandButton icon="ui-icon-trash" title="Remover"
+						actionListener="#{ClienteControl.excluir(clie.id)}"
+						update="clientes" />
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+
+		<p:confirmDialog message="Confirma a exclusão deste registro?"
+			header="Confirmação de exclusão" severity="alert"
+			widgetVar="confirmacaoExclusao">
+			<p:commandButton id="btnSim" value="Sim"
+				oncomplete="PF('confirmacaoExclusao').hide()"
+				actionListener="#{ClienteControl.excluir }"
+				update=":formCorpo:panelGeral" />
+			<p:commandButton id="btnNao" value="Não"
+				onclick="PF('confirmacaoExclusao').hide()" type="button" />
+		</p:confirmDialog>
+
+	</ui:define>
+</ui:composition>

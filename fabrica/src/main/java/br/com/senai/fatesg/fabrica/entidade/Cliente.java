@@ -21,6 +21,8 @@ public class Cliente {
    private String identidade;
    private String cpf;
    private String cnpj;
+   private String email;
+   private String endereco;
    private String telefone;
    private String endereco;
    private String banco;

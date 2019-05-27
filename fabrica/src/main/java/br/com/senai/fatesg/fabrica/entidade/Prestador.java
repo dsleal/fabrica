@@ -15,21 +15,23 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Prestador implements java.io.Serializable {
 
-   
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2208170958637008883L;
 	@Id
-	@GeneratedValue(generator="prestador_seq", strategy=GenerationType.SEQUENCE)
-	@SequenceGenerator(name="prestador_seq", sequenceName="prestador_seq", allocationSize=1, initialValue=1)
-   private Integer id;
-   private String nome;
-   private Date dataDeNascimento;
-   private String identidade;
-   private String cpf;
-   private String cnpj;
-   private String telefone;
+	@GeneratedValue(generator = "prestador_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "prestador_seq", sequenceName = "prestador_seq", allocationSize = 1, initialValue = 1)
+	private Integer id;
+	private String nome;
+	private Date dataDeNascimento;
+	private String identidade;
+	private String cpf;
+	private String cnpj;
+	private String telefone;
+	private String email;
+	private String endereco;
+	private String codigo_banco;
+	private String agencia;
+	private String conta;	
+	@ManyToOne
+	private TipoDePrestador tipoDePrestador;
    private String endereco;
    private String banco;
    private String agencia;
@@ -80,17 +82,17 @@ public class Prestador implements java.io.Serializable {
 	      return nome;
    }
 
-   public void setNome(String nome) {
-      this.nome = nome;
-   }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-   public String getTelefone() {
-      return telefone;
-   }
+	public String getTelefone() {
+		return telefone;
+	}
 
-   public void setTelefone(String telefone) {
-      this.telefone = telefone;
-   }
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
    public Integer getId() {
       return id;
