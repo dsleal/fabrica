@@ -28,12 +28,49 @@
 					mask="99.999.999/9999-99"></p:inputMask>
 
 				<h:outputText value="Telefone"></h:outputText>
+				
 				<p:inputMask value="#{ClienteControl.cliente.telefone }"
 					mask="(99) 9999-9999"></p:inputMask>
+					
+				<h:outputText value="Endereco"></h:outputText>
+				<p:inputText value="#{ClienteControl.cliente.endereco }"></p:inputText>
+				
+				<h:outputText value="Banco"></h:outputText>
+				<p:inputText value="#{ClienteControl.cliente.banco }"></p:inputText>
+				
+				<h:outputText value="Agencia"></h:outputText>
+				<p:inputText value="#{ClienteControl.cliente.agencia }"></p:inputText>
+				
+				<h:outputText value="Conta"></h:outputText>
+				<p:inputText value="#{ClienteControl.cliente.conta }"></p:inputText>
+				
+				<h:outputText value="Email"></h:outputText>
+				<p:inputText value="#{ClienteControl.cliente.email }"></p:inputText>
+				
+				
+				
+				<h:outputText value="Senha"></h:outputText>
+				<p:password value="#{ClienteControl.cliente.senha }" 
+					feedback="true" 
+					inline="true" 
+					promptLabel="Digite a senha"
+					weakLabel="Fraca" 
+					goodLabel="Média" 
+					strongLabel="Forte" 
+					match="senha2" 
+					validatorMessage="As duas senhas devem ser iguais">
+					
+					</p:password>
+				
+				<h:outputText value="Confirmar Senha"></h:outputText>
+				<p:password id="senha2" value="#{ClienteControl.cliente.senha }"></p:password>	
+				
 				<p:commandButton actionListener="#{ClienteControl.novo }"
 					value="Novo" update="clientes, panel"></p:commandButton>
+				
 				<p:commandButton actionListener="#{ClienteControl.confirmar }"
 					value="Confirmar" update="clientes, panel"></p:commandButton>
+				
 				<p:commandButton action="administrador.xhtml" value="Voltar"></p:commandButton>
 
 

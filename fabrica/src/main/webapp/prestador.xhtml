@@ -13,7 +13,7 @@
 				<h:outputText value="Nome"></h:outputText>
 				<p:inputText value="#{PrestadorControl.prestador.nome }"></p:inputText>
 				
-				<h:outputText value="DataDeNascimento"></h:outputText>
+				<h:outputText value="Data De Nascimento"></h:outputText>
 				<p:calendar></p:calendar>
 				
 				<h:outputText value="Identidade"></h:outputText>
@@ -25,64 +25,119 @@
 				<h:outputText value="Cnpj"></h:outputText>
 				<p:inputMask value="#{PrestadorControl.prestador.cnpj }" mask="99.999.999/9999-99"></p:inputMask>
 				
-				<h:outputText value="Telefone"></h:outputText>
+				<h:outputText value="Telefone 1"></h:outputText>
 				<p:inputMask value="#{PrestadorControl.prestador.telefone }" mask="(99) 9999-9999"></p:inputMask>
-				<p:commandButton actionListener="#{PrestadorControl.novo }" value="Novo" update="prestadores, panel"></p:commandButton>
-				<p:commandButton actionListener="#{PrestadorControl.confirmar }" value="Confirmar" update="prestadores, panel"></p:commandButton>
-				<p:commandButton action="administrador.xhtml" value="Voltar" ></p:commandButton>
+				
+				<p:outputLabel for="tipoPrestador" value="Tipo: " />
+	            <p:selectOneMenu id="tipoPrestador" value="#{TipoDePrestadorControl.tipoDePrestadores}" style="width:150px">
+	                <f:selectItem itemLabel="Selecione..." itemValue="" noSelectionOption="true" />
+	                <f:selectItems value="#{PrestadorControl.prestador.tipoDePrestador.descricao}" />
+	            </p:selectOneMenu>
+				
+				<h:outputText value="Endereco"></h:outputText>
+				<p:inputText value="#{PrestadorControl.prestador.endereco }"></p:inputText>
+				
+				<h:outputText value="Banco"></h:outputText>
+				<p:inputText value="#{PrestadorControl.prestador.banco }"></p:inputText>
+				
+				<h:outputText value="Agencia"></h:outputText>
+				<p:inputText value="#{PrestadorControl.prestador.agencia }"></p:inputText>
+				
+				<h:outputText value="Conta"></h:outputText>
+				<p:inputText value="#{PrestadorControl.prestador.conta }"></p:inputText>
+				
+				<h:outputText value="Email"></h:outputText>
+				<p:inputText value="#{PrestadorControl.prestador.email }"></p:inputText>
+				
+				
+				
+				<h:outputText value="Senha"></h:outputText>
+				<p:password value="#{PrestadorControl.prestador.senha }" 
+					feedback="true" 
+					inline="true" 
+					promptLabel="Digite a senha"
+					weakLabel="Fraca" 
+					goodLabel="Média" 
+					strongLabel="Forte" 
+					match="senha2" 
+					validatorMessage="As duas senhas devem ser iguais">
+					
+					</p:password>
+				
+				<h:outputText value="Confirmar Senha"></h:outputText>
+				<p:password id="senha2" value="#{PrestadorControl.prestador.senha }"></p:password>
+				
+				<p:commandButton actionListener="#{PrestadorControl.novo }" 
+					value="Novo" 
+					update="prestadores, panel">
+				</p:commandButton>
+				
+				<p:commandButton actionListener="#{PrestadorControl.confirmar }" 
+					value="Confirmar" 
+					update="prestadores, panel">
+				</p:commandButton>
+				
+				<p:commandButton action="administrador.xhtml" 
+					value="Voltar" >
+				</p:commandButton>
 		
 			</h:panelGrid>
 		</p:panel>
 		
-		<p:dataTable id="prestadores" value="#{PrestadorControl.prestadores }" var="prest"  width="100%" emptyMessage="Sem registros" >
+		<p:dataTable id="prestadores" 
+				value="#{PrestadorControl.prestadores }" 
+				var="prestador"  
+				width="100%" 
+				emptyMessage=":(" >
 			<f:facet name="header">
-				<h:outputText value="Lista de Prestadores"></h:outputText>
+				<h:outputText value="Prestadores Cadastrados"></h:outputText>
 			</f:facet>
-						<p:column sortBy="#{prest.id }">
+			<p:column sortBy="#{prestador.id }">
 				<f:facet name="header">
 					<h:outputText value="Codigo"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{prest.id }"></h:outputText>
+				<h:outputText value="#{prestador.id }"></h:outputText>
 			</p:column>
-			<p:column sortBy="#{prest.nome }">
+			<p:column sortBy="#{prestador.nome }">
 				<f:facet name="header">
 					<h:outputText value="Nome"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{prest.nome }"></h:outputText>
+				<h:outputText value="#{prestador.nome }"></h:outputText>
 			</p:column>
-			<p:column sortBy="#{prest.cnpj }">
+			<p:column sortBy="#{prestador.cnpj }">
 				<f:facet name="header">
 					<h:outputText value="Cnpj"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{prest.cnpj }"></h:outputText>
+				<h:outputText value="#{prestador.cnpj }"></h:outputText>
 			</p:column>
-			<p:column sortBy="#{prest.cpf }">
+			<p:column sortBy="#{prestador.cpf }">
 				<f:facet name="header">
 					<h:outputText value="Cpf"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{prest.cpf }"></h:outputText>
+				<h:outputText value="#{prestador.cpf }"></h:outputText>
 			</p:column>
-				<p:column sortBy="#{clie.identidade }">
+			<p:column sortBy="#{clie.identidade }">
 				<f:facet name="header">
 					<h:outputText value="Identidade"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{prest.identidade }"></h:outputText>
+				<h:outputText value="#{prestador.identidade }"></h:outputText>
 			</p:column>
-			<p:column sortBy="#{prest.telefone }">
+			<p:column sortBy="#{prestador.telefone }">
 				<f:facet name="header">
 					<h:outputText value="Telefone"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{prest.telefone }"></h:outputText>
+				<h:outputText value="#{prestador.telefone }"></h:outputText>
 			</p:column>
 			<p:column headerText=""  style="width:35px;" >
-				<p:commandButton icon="ui-icon-pencil" title="Editar" actionListener="#{PrestadorControl.editar(prest)}"
+				<p:commandButton icon="ui-icon-pencil" title="Editar" 
+					actionListener="#{PrestadorControl.editar(prestador)}"
 					update="formCorpo:panel">
 				</p:commandButton> 
 			</p:column>
 
 			<p:column headerText="" style="width:35px;">
 				<p:commandButton icon="ui-icon-trash" title="Remover"
-					actionListener="#{PrestadorControl.excluir(prest.id)}"
+					actionListener="#{PrestadorControl.excluir(prestador.id)}"
 					update="prestadores">
 				</p:commandButton>
 			</p:column>

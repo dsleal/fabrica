@@ -22,6 +22,12 @@ public class Cliente {
    private String cpf;
    private String cnpj;
    private String telefone;
+   private String endereco;
+   private String banco;
+   private String agencia;
+   private String conta;
+   private String email;
+   private String senha;
 
    public Date getDataDeNascimento() {
 	return dataDeNascimento;
@@ -78,6 +84,54 @@ public String getNome() {
    public Integer getId() {
       return id;
    }
+
+public String getEndereco() {
+	return endereco;
+}
+
+public void setEndereco(String endereco) {
+	this.endereco = endereco;
+}
+
+public String getBanco() {
+	return banco;
+}
+
+public void setBanco(String banco) {
+	this.banco = banco;
+}
+
+public String getAgencia() {
+	return agencia;
+}
+
+public void setAgencia(String agencia) {
+	this.agencia = agencia;
+}
+
+public String getConta() {
+	return conta;
+}
+
+public void setConta(String conta) {
+	this.conta = conta;
+}
+
+public String getEmail() {
+	return email;
+}
+
+public void setEmail(String email) {
+	this.email = email;
+}
+
+public String getSenha() {
+	return senha;
+}
+
+public void setSenha(String senha) {
+	this.senha = senha;
+}
    
 
 }
