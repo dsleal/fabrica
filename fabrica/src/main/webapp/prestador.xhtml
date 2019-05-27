@@ -25,8 +25,25 @@
 				<h:outputText value="Cnpj"></h:outputText>
 				<p:inputMask value="#{PrestadorControl.prestador.cnpj }" mask="99.999.999/9999-99"></p:inputMask>
 				
+				<h:outputText value="Email"></h:outputText>
+				<p:inputMask value="#{PrestadorControl.prestador.email }"></p:inputMask>
+				
 				<h:outputText value="Telefone"></h:outputText>
 				<p:inputMask value="#{PrestadorControl.prestador.telefone }" mask="(99) 9999-9999"></p:inputMask>
+				
+				<h:outputText value="Endereco"></h:outputText>
+				<p:inputMask value="#{PrestadorControl.prestador.endereco }"></p:inputMask>
+				
+				<h:outputText value="Código do Banco"></h:outputText>
+				<p:inputMask value="#{PrestadorControl.prestador.codigo_banco }"></p:inputMask>
+				
+				<h:outputText value="Agência"></h:outputText>
+				<p:inputMask value="#{PrestadorControl.prestador.agencia }"></p:inputMask>
+				
+				<h:outputText value="Conta"></h:outputText>
+				<p:inputMask value="#{PrestadorControl.prestador.conta }"></p:inputMask>			
+				
+				
 				<p:commandButton actionListener="#{PrestadorControl.novo }" value="Novo" update="prestadores, panel"></p:commandButton>
 				<p:commandButton actionListener="#{PrestadorControl.confirmar }" value="Confirmar" update="prestadores, panel"></p:commandButton>
 				<p:commandButton action="administrador.xhtml" value="Voltar" ></p:commandButton>
