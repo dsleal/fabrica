@@ -24,11 +24,9 @@ public class Cliente {
    private String email;
    private String endereco;
    private String telefone;
-   private String endereco;
    private String banco;
    private String agencia;
    private String conta;
-   private String email;
    private String senha;
 
    public Date getDataDeNascimento() {

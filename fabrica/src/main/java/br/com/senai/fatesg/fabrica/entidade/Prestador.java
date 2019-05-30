@@ -29,16 +29,13 @@ public class Prestador implements java.io.Serializable {
 	private String endereco;
 	private String codigo_banco;
 	private String agencia;
-	private String conta;	
-	@ManyToOne
-	private TipoDePrestador tipoDePrestador;
-   private String endereco;
-   private String banco;
-   private String agencia;
-   private String conta;
-   private String email;
-   private String senha;
+	private String conta;
+	
+	
+   @ManyToOne
    private TipoDePrestador tipoDePrestador;
+   private String banco;
+   private String senha;
 
    	public Date getDataDeNascimento() {
    		return dataDeNascimento;
